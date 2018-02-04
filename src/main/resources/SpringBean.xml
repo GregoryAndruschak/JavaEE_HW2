@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="helloBean" class="ua.hw.HelloWorld">
+        <property name="name" value="Greg"/>
+    </bean>
+
+    <bean id="student" class="ua.hw.Student">
+        <constructor-arg value="85"/>
+    </bean>
+
+    <bean id="stone" class="ua.hw.Stone"/>
+
+    <bean id="lazyStudent" class="ua.hw.LazyStudent">
+        <constructor-arg value="91"/>
+        <constructor-arg ref="stone"/>
+    </bean>
+
+    <bean id="coffeeMachine" class="ua.hw.CoffeeMachine"/>
+
+    <bean id="microwave" class="ua.hw.Microwave"/>
+
+    <bean id="person" class="ua.hw.Person">
+        <property name="name" value="Steve"/>
+        <property name="age" value="24"/>
+        <property name="machine" ref="coffeeMachine"/>
+    </bean>
+
+    <bean id="extendedPerson" class="ua.hw.ExtendedPerson">
+        <property name="name" value="Valeriy Albertovich"/>
+        <property name="age" value="54"/>
+        <property name="machines">
+            <list>
+                <ref bean="coffeeMachine"/>
+                <ref bean="microwave"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
